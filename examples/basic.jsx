@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import Component from '../src/Component';
+import Component from '@telerik/kendo-react-component-base';
 
 ReactDOM.render(
   <Component />,
