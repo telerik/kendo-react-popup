@@ -11,6 +11,7 @@ A starter repository for Kendo UI React components, which provides the basic dir
 
 - The `examples` directory hosts the demos for the component. As a bare minimum, the component should have a `basic usage` and a `CDN` example.  The `CDN` example should work as expected after the `build-cdn` task has been run.
 - The `test` directory contains the component tests. They are transpiled just like the source code itself, and are run with Jasmine in NodeJS.
+- The `e2e` directory contains the end-to-end tests. They are transpiled just like the source code itself, and are run with Karma and Jasmine in the browser.
 - The `docs` directory contains markdown files that document the specifics of the component.
 
 ## Gulp tasks
