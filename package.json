@@ -9,6 +9,7 @@
   "main": "dist/npm/js/main.js",
   "scripts": {
     "test": "gulp test",
+    "e2e": "gulp e2e",
     "start": "gulp start",
     "lint": "gulp lint",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
