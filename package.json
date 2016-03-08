@@ -1,13 +1,17 @@
 {
   "name": "@telerik/kendo-react-component-base",
-  "version": "0.1.0",
   "description": "Kendo UI React component starter template",
-  "repository": "telerik/kendo-react-component-base",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/telerik/kendo-react-component-base.git"
+  },
   "main": "dist/npm/js/main.js",
   "scripts": {
     "test": "gulp test",
     "start": "gulp start",
-    "lint": "gulp lint"
+    "lint": "gulp lint",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "keywords": [
     "Kendo UI",
@@ -22,9 +26,10 @@
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "^1.0.3",
     "gulp": "3.9.0",
-    "@telerik/kendo-react-tasks": "telerik/kendo-react-tasks#master",
+    "@telerik/kendo-react-tasks": "~1.0.0",
     "@telerik/kendo-theme-default": "telerik/kendo-theme-default#master",
-    "validate-commit-msg": "^1.1.1"
+    "validate-commit-msg": "^1.1.1",
+    "semantic-release": "^4.3.5"
   },
   "author": "Telerik",
   "license": "Apache-2.0",
