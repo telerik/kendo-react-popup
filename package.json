@@ -12,6 +12,7 @@
     "e2e": "gulp e2e",
     "start": "gulp start",
     "lint": "gulp lint",
+    "build-package": "gulp build-npm-package",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "keywords": [
