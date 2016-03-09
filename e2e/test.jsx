@@ -12,6 +12,6 @@ import { withRoot } from 'e2e-utils';
 describe('Component', withRoot(root => {
     it('should render a div', () => {
         ReactDOM.render( <Component />, root[0]);
-        root.find("div").should.have.class("k-missing");
+        root.find("div").should.have.class("k-example");
     });
 }));
