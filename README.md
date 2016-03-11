@@ -1,4 +1,6 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Build Status](https://travis-ci.org/telerik/kendo-react-component-base.svg?branch=master)](https://travis-ci.org/telerik/kendo-react-component-base)
+[![npm version](https://badge.fury.io/js/%40telerik%2Fkendo-react-component-base.svg)](https://badge.fury.io/js/%40telerik%2Fkendo-react-component-base)
 
 A starter repository for Kendo UI React components, which provides the basic directory structure and dependencies.
 
