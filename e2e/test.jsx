@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Component from '../src/Component';
+import Component from '@telerik/kendo-react-component-base';
 
 // e2e-utils is a module exposed from react-tasks
 // it exports `$` and `withRoot` - higher order function for describe (example below)

@@ -10,6 +10,7 @@
   "scripts": {
     "test": "gulp test",
     "e2e": "gulp e2e",
+    "e2e-npm": "gulp e2e-npm",
     "start": "gulp start",
     "lint": "gulp lint",
     "build-package": "gulp build-npm-package",
