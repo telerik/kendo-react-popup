@@ -32,14 +32,6 @@ class BasicDemo extends React.Component {
         };
     }
 
-    componentDidMount() {
-        this.anchor = ReactDOM.findDOMNode(this.refs.anchor);
-    }
-
-    componentDidUpdate() {
-        this.anchor = ReactDOM.findDOMNode(this.refs.anchor);
-    }
-
     collisionChange = (collisions) => {
         this.setState({
             collision: collisions
@@ -78,7 +70,7 @@ class BasicDemo extends React.Component {
         } = this.state;
 
         const popupProps = {
-            anchor: this.anchor,
+            anchor: this.refs.anchor,
             collision: collision,
             origin: origin,
             position: position,
