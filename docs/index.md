@@ -37,14 +37,16 @@ The example below demonstrates the default setup of a Kendo UI Popup for React.
             const { show } = this.state.show;
 
             return (
-                <button onClick=this.onClick} ref="anchor">Toggle</option>
-                <Popup anchor={this.refs.anchor} show={show}>
-                    <ul>
-                        <li>Item1</li>
-                        <li>Item2</li>
-                        <li>Item3</li>
-                    </ul>
-                </Popup>
+                <div>
+                    <button onClick={this.onClick} ref="anchor">Toggle</button>
+                    <KendoReactPopup anchor={this.refs.anchor} show={show}>
+                        <ul>
+                            <li>Item1</li>
+                            <li>Item2</li>
+                            <li>Item3</li>
+                        </ul>
+                    </KendoReactPopup>
+                </div>
             );
         }
     }
@@ -84,14 +86,16 @@ The component/element that the Popup component should align to. If `anchor` is n
             const { show } = this.state.show;
 
             return (
-                <button onClick=this.onClick} ref="anchor">Toggle</option>
-                <Popup anchor={this.refs.anchor} show={show}>
-                    <ul>
-                        <li>Item1</li>
-                        <li>Item2</li>
-                        <li>Item3</li>
-                    </ul>
-                </Popup>
+                <div>
+                    <button onClick={this.onClick} ref="anchor">Toggle</button>
+                    <KendoReactPopup anchor={this.refs.anchor} show={show}>
+                        <ul>
+                            <li>Item1</li>
+                            <li>Item2</li>
+                            <li>Item3</li>
+                        </ul>
+                    </KendoReactPopup>
+                </div>
             );
         }
     }
@@ -132,21 +136,23 @@ By default, [`collision`]() configuration property is configured to **fit** hori
             const popupProps = {
                 anchor: this.refs.anchor,
                 collision: {
-                    horizontal: Popup.collision.flip,
-                    vertical: Popup.collision.fit
+                    horizontal: "flip",
+                    vertical: "fit"
                 },
                 show: show
             };
 
             return (
-                <button onClick=this.onClick} ref="anchor">Toggle</option>
-                <Popup {...popupProps}>
-                    <ul>
-                        <li>Item1</li>
-                        <li>Item2</li>
-                        <li>Item3</li>
-                    </ul>
-                </Popup>
+                <div>
+                    <button onClick={this.onClick} ref="anchor">Toggle</button>
+                    <KendoReactPopup {...popupProps}>
+                        <ul>
+                            <li>Item1</li>
+                            <li>Item2</li>
+                            <li>Item3</li>
+                        </ul>
+                    </KendoReactPopup>
+                </div>
             );
         }
     }
@@ -186,21 +192,23 @@ By default, [`origin`]() configuration property is configured to attach the popu
             const popupProps = {
                 anchor: this.refs.anchor,
                 origin: {
-                    horizontal: Popup.origin.right,
-                    vertical: Popup.origin.bottom
+                    horizontal: "right",
+                    vertical: "bottom"
                 },
                 show: show
             };
 
             return (
-                <button onClick=this.onClick} ref="anchor">Toggle</option>
-                <Popup {...popupProps}>
-                    <ul>
-                        <li>Item1</li>
-                        <li>Item2</li>
-                        <li>Item3</li>
-                    </ul>
-                </Popup>
+                <div>
+                    <button onClick={this.onClick} ref="anchor">Toggle</button>
+                    <KendoReactPopup {...popupProps}>
+                        <ul>
+                            <li>Item1</li>
+                            <li>Item2</li>
+                            <li>Item3</li>
+                        </ul>
+                    </KendoReactPopup>
+                </div>
             );
         }
     }
@@ -240,21 +248,23 @@ By default, [`position`]() configuration property is configured to attach the po
             const popupProps = {
                 anchor: this.refs.anchor,
                 position: {
-                    horizontal: Popup.origin.right,
-                    vertical: Popup.origin.top
+                    horizontal: "right",
+                    vertical: "top"
                 },
                 show: show
             };
 
             return (
-                <button onClick=this.onClick} ref="anchor">Toggle</option>
-                <Popup {...popupProps}>
-                    <ul>
-                        <li>Item1</li>
-                        <li>Item2</li>
-                        <li>Item3</li>
-                    </ul>
-                </Popup>
+                <div>
+                    <button onClick={this.onClick} ref="anchor">Toggle</button>
+                    <KendoReactPopup {...popupProps}>
+                        <ul>
+                            <li>Item1</li>
+                            <li>Item2</li>
+                            <li>Item3</li>
+                        </ul>
+                    </KendoReactPopup>
+                </div>
             );
         }
     }
