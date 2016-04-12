@@ -111,10 +111,14 @@ class Popup extends React.Component {
         let key = new Date().getTime();
         let style = show ? null : { display: 'none' };
 
+        //let transitionName = flipped ? styles['slide-up'] : styles['slide-down'];
         let transitionName = flipped ? 'k-slide-up' : 'k-slide-down';
 
+        //TODO: Use styles.popup when available
+        let popupClassName = 'k-popup';
+
         return (
-            <Animation className="k-popup" {...otherProps} style={position} transitionName={transitionName}>
+            <Animation className={popupClassName} {...otherProps} style={position} transitionName={transitionName}>
                 <div key={key} style={style}>
                     {children}
                 </div>
@@ -123,7 +127,7 @@ class Popup extends React.Component {
     }
 }
 
-//exported the enums
+//exports the enums
 Popup.collision = util.collision;
 Popup.origin = util.alignPoint;
 Popup.position = util.alignPoint;

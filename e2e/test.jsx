@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Popup from '@telerik/kendo-react-component-base';
+import Popup from '@telerik/kendo-react-popup';
 
 // e2e-utils is a module exposed from react-tasks
 // it exports `$` and `withRoot` - higher order function for describe (example below)
@@ -12,6 +12,6 @@ import { withRoot } from 'e2e-utils';
 describe('Popup', withRoot(root => {
     it('should render a div', () => {
         ReactDOM.render( <Popup />, root[0]);
-        root.find("div").should.have.class("k-example");
+        root.find("div").should.have.class("k-popup");
     });
 }));
