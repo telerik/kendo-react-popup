@@ -1,3 +1,3 @@
-import Component from './Component';
+import Popup from './Popup';
 
-module.exports = Component;
+module.exports = Popup;
