@@ -1,6 +1,74 @@
 <!DOCTYPE html>
 <html>
-<head></head>
+<head>
+    <style>
+        .example {
+            display: flex;
+            margin: auto 30px;
+        }
+
+        .content {
+            margin: 100px auto;
+        }
+
+        .anchor {
+            width: 100px;
+            border: 1px solid red;
+        }
+
+        .popup-content {
+            border: 1px solid;
+        }
+
+        .popup-content ul {
+            padding-right: 2em;
+        }
+
+        .k-animation-container {
+            overflow: hidden;
+        }
+
+        .k-popup {
+            position: absolute;
+        }
+
+        .k-slide-enter {
+            transform: translateY(-100%);
+        }
+
+        .k-slide-enter-active {
+            transform: translateY(0);
+            transition: transform 300ms ease-in-out;
+        }
+
+        .k-slide-leave {
+            transform: translateY(0);
+        }
+
+        .k-slide-leave-active {
+            transform: translateY(-100%);
+            transition: transform 300ms ease-in-out;
+        }
+
+        .k-slide-flipped-enter {
+            transform: translateY(100%);
+        }
+
+        .k-slide-flipped-enter-active {
+            transform: translateY(0);
+            transition: transform 300ms ease-in-out;
+        }
+
+        .k-slide-flipped-leave {
+            transform: translateY(0);
+        }
+
+        .k-slide-flipped-leave-active {
+            transform: translateY(100%);
+            transition: transform 300ms ease-in-out;
+        }
+    </style>
+</head>
 <body>
     <div id="app"></div>
     <script src="basic.js"></script>
