@@ -1,26 +1,103 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![Build Status](https://travis-ci.org/telerik/kendo-react-component-base.svg?branch=master)](https://travis-ci.org/telerik/kendo-react-component-base)
-[![npm version](https://badge.fury.io/js/%40telerik%2Fkendo-react-component-base.svg)](https://badge.fury.io/js/%40telerik%2Fkendo-react-component-base)
+[![Build Status](https://travis-ci.org/telerik/kendo-react-popup.svg?branch=master)](https://travis-ci.org/telerik/kendo-react-popup)
+[![npm version](https://badge.fury.io/js/%40telerik%2Fkendo-react-popup.svg)](https://badge.fury.io/js/%40telerik%2Fkendo-react-popup)
 
-A starter repository for Kendo UI React components, which provides the basic directory structure and dependencies.
+# Kendo UI Popup for React
 
-## Structure
+* [Overview](https://github.com/telerik/kendo-react-popup#overview)
+* [Basic Usage](https://github.com/telerik/kendo-react-popup#basic-usage)
+* [Installation](https://github.com/telerik/kendo-react-popup#installation)
+* [Browser Support](https://github.com/telerik/kendo-react-popup#browser-support)
+* [Glossary](https://github.com/telerik/kendo-react-popup#glossary)
+  * [Component](https://github.com/telerik/kendo-react-popup#component)
+  * [Package](https://github.com/telerik/kendo-react-popup#package)
 
-- The `src` directory contains the component source code. All files should be have the `.jsx` extensions so that the build scripts may pick them.
-- The `src/main.jsx` file should import and re-export all public components of the package. It is used for the `build-cdn` task. It is also the main entry point for the NPM package (as specified by the `package.json`). The `build-npm-package` transpiles it to `dist/npm/js/main.js`;
-- The `src/Component.jsx` file is the actual sample component implementation.
-- The `src/util.jsx` is an optional example of an additional file - you may remove it if unnecessary.
+## Overview
 
-- The `examples` directory hosts the demos for the component. As a bare minimum, the component should have a `basic usage` and a `CDN` example.  The `CDN` example should work as expected after the `build-cdn` task has been run.
-- The `test` directory contains the component tests. They are transpiled just like the source code itself, and are run with Jasmine in NodeJS.
-- The `e2e` directory contains the end-to-end tests. They are transpiled just like the source code itself, and are run with Karma and Jasmine in the browser.
-- The `docs` directory contains markdown files that document the specifics of the component.
+This repository contains the source code and documentation of the Kendo UI Popup component for React.
 
-## Gulp tasks
+For more information on forthcoming Popup package features, refer to the [Roadmap](https://github.com/telerik/kendo-react-popup/blob/master/docs/roadmap.md).
 
-- `build-npm-package` - builds the scripts and styles in `dist/npm` in CommonJS format;
-- `build-cdn` - builds the scripts and styles in `dist/cdn` in UMD format.
-- `start` - starts the webpack-dev-server (with browsersync in front of it) - suitable for example preview, development and testing.
-- `test` - runs the tests with Jasmine in NodeJS.
-- `watch-test` - runs the tests in watch mode.
-- `docs` - launches a preview server for the documentation in the `docs` directory
+## Basic Usage
+
+The Popup component allows to position a specific content next to a pre-defined anchor element.
+
+```html-preview
+  <div id="app"></div>
+```
+```jsx
+    class BasicDemo extends React.Component {
+        constructor(props) {
+            super(props);
+
+            this.state = { show: false };
+        }
+
+        onClick = () => {
+            this.setState({
+                show: !this.state.show
+            });
+        }
+
+        render() {
+            const { show } = this.state.show;
+
+            return (
+                <div>
+                    <button onClick={this.onClick} ref="anchor">Toggle</button>
+                    <KendoReactPopup anchor={this.refs.anchor} show={show}>
+                        <ul>
+                            <li>Item1</li>
+                            <li>Item2</li>
+                            <li>Item3</li>
+                        </ul>
+                    </KendoReactPopup>
+                </div>
+            );
+        }
+    }
+
+    ReactDOM.render(
+      <BasicDemo />,
+      document.getElementById('app')
+    );
+```
+
+For more examples and available configuration options, refer to the [Popup documentation section](https://github.com/telerik/kendo-react-popup/blob/master/docs/index.md).
+
+## Installation
+
+The React Popup is published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in `http://npmjs.org/`.
+
+Install it using NPM:
+
+```sh
+npm install --save @telerik/kendo-react-popup;
+```
+
+Once installed, import the module:
+
+```jsx
+// ES2015 module syntax
+import Popup from 'kendo-react-popup';
+```
+```jsx
+// CommonJS format
+var Popup = require('kendo-react-popup');
+```
+
+## Browser Support
+
+The Kendo UI Popup component for React supports all browsers that are supported by the React framework&mdash;Internet Explorer 9 and later versions.
+
+## Glossary
+
+Below are explained the basic terms that Kendo UI suite for React applies.
+
+### Component
+
+A Component refers to a [React Component](https://facebook.github.io/react/docs/jsx-in-depth.html#html-tags-vs.-react-components).
+
+### Package
+
+A package contains one or more components, developed in a single repository and distributed in a single NPM package.
