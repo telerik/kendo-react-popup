@@ -1,10 +1,10 @@
 {
-  "name": "@telerik/kendo-react-component-base",
-  "description": "Kendo UI React component starter template",
-  "version": "1.0.0",
+  "name": "@telerik/kendo-react-popup",
+  "description": "Kendo UI React Popup component",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/telerik/kendo-react-component-base.git"
+    "url": "https://github.com/telerik/kendo-react-popup.git"
   },
   "main": "dist/npm/js/main.js",
   "scripts": {
@@ -27,13 +27,14 @@
   },
   "devDependencies": {
     "@telerik/eslint-config": "1.1.0",
+    "@telerik/kendo-react-animation": "^0.1.10",
+    "@telerik/kendo-react-tasks": "^1.0.0",
+    "@telerik/kendo-theme-default": "telerik/kendo-theme-default#master",
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "^1.0.3",
     "gulp": "3.9.0",
-    "@telerik/kendo-react-tasks": "^1.0.0",
-    "@telerik/kendo-theme-default": "telerik/kendo-theme-default#master",
-    "validate-commit-msg": "^1.1.1",
-    "semantic-release": "^4.3.5"
+    "semantic-release": "^4.3.5",
+    "validate-commit-msg": "^1.1.1"
   },
   "author": "Telerik",
   "license": "Apache-2.0",
@@ -61,5 +62,8 @@
       "warnOnFail": false,
       "maxSubjectLength": 100
     }
+  },
+  "dependencies": {
+    "classnames": "^2.2.3"
   }
 }
