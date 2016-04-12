@@ -5,27 +5,138 @@
     <title>CDN example</title>
     <link rel="stylesheet" href="../dist/cdn/css/kendo-react-popup.css" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
+    <script src="https://fb.me/react-with-addons-15.0.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.8/react-dom.js"></script>
     <script src="../dist/cdn/js/kendo-react-popup.js"></script>
+    <style>
+        .k-animation-container {
+            overflow: hidden;
+        }
+
+        .k-popup {
+            position: absolute;
+        }
+
+        .k-slide-down-enter {
+            transform: translateY(-100%);
+        }
+
+        .k-slide-down-enter-active {
+            transform: translateY(0);
+            transition: transform 300ms ease-in-out;
+        }
+
+        .k-slide-down-leave {
+            transform: translateY(0);
+        }
+
+        .k-slide-down-leave-active {
+            transform: translateY(-100%);
+            transition: transform 300ms ease-in-out;
+        }
+
+        .k-slide-up-enter {
+            transform: translateY(100%);
+        }
+
+        .k-slide-up-enter-active {
+            transform: translateY(0);
+            transition: transform 300ms ease-in-out;
+        }
+
+        .k-slide-up-leave {
+            transform: translateY(0);
+        }
+
+        .k-slide-up-leave-active {
+            transform: translateY(100%);
+            transition: transform 300ms ease-in-out;
+        }
+    </style>
   </head>
   <body>
-    <div id="content">
+    <div id="app">
     </div>
 
     <script>
-      var App = React.createClass({displayName: 'App',
-        render: function() {
-          return (
-            React.createElement(Popup, {  })
-          );
-        }
-      });
+        var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-      ReactDOM.render(
-        React.createElement(App, null),
-        document.getElementById('content')
-      );
+        function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+        function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+        function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+        var BasicDemo = function (_React$Component) {
+            _inherits(BasicDemo, _React$Component);
+
+            function BasicDemo(props) {
+                _classCallCheck(this, BasicDemo);
+
+                var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BasicDemo).call(this, props));
+
+                _this.state = { show: false };
+                return _this;
+            }
+
+            _createClass(BasicDemo, [{
+                key: "toggle",
+                value: function toggle() {
+                    var show = this.state.show;
+
+
+                    this.setState({
+                        show: !show
+                    });
+                }
+            }, {
+                key: "render",
+                value: function render() {
+                    var show = this.state.show;
+                    var popupProps = {
+                        anchor: this.refs.anchor,
+                        show: show
+                    };
+
+                    return React.createElement(
+                        "div",
+                        { className: "example" },
+                        React.createElement(
+                            "button",
+                            { onClick: this.toggle.bind(this), ref: "anchor" },
+                            show ? 'Close' : 'Open'
+                        ),
+                        React.createElement(
+                            KendoReactPopup,
+                            popupProps,
+                            React.createElement(
+                                "ul",
+                                null,
+                                React.createElement(
+                                    "li",
+                                    null,
+                                    "Item1"
+                                ),
+                                React.createElement(
+                                    "li",
+                                    null,
+                                    "Item2"
+                                ),
+                                React.createElement(
+                                    "li",
+                                    null,
+                                    "Item3"
+                                )
+                            )
+                        )
+                    );
+                }
+            }]);
+
+            return BasicDemo;
+        }(React.Component);
+
+        ReactDOM.render(React.createElement(BasicDemo, null), document.getElementById('app'));
     </script>
   </body>
 </html>

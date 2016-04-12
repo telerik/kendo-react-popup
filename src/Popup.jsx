@@ -111,7 +111,7 @@ class Popup extends React.Component {
         let key = new Date().getTime();
         let style = show ? null : { display: 'none' };
 
-        let transitionName = flipped ? 'k-slide-flipped' : 'k-slide';
+        let transitionName = flipped ? 'k-slide-up' : 'k-slide-down';
 
         return (
             <Animation className="k-popup" {...otherProps} style={position} transitionName={transitionName}>
