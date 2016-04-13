@@ -17,6 +17,16 @@ The Kendo UI Popup for React is a component that allows to position a specific c
 The example below demonstrates the default setup of a Kendo UI Popup for React.
 
 ```html-preview
+  <style>
+    .k-popup {
+        position: absolute;
+    }
+
+    .k-popup > div {
+        border: 1px solid red;
+        padding-right: 2em;
+    }
+  </style>
   <div id="app"></div>
 ```
 ```jsx
@@ -34,7 +44,7 @@ The example below demonstrates the default setup of a Kendo UI Popup for React.
         }
 
         render() {
-            const { show } = this.state.show;
+            const { show } = this.state;
 
             return (
                 <div>
@@ -66,6 +76,22 @@ The component/element that the Popup component should align to. If `anchor` is n
 > The [`anchor`]() configuration property should be defined in order to position correctly the popup.
 
 ```html-preview
+  <style>
+    .anchor {
+        position: absolute;
+        top: 100px;
+        left: 100px;
+    }
+
+    .k-popup {
+        position: absolute;
+    }
+
+    .k-popup > div {
+        border: 1px solid red;
+        padding-right: 2em;
+    }
+  </style>
   <div id="app"></div>
 ```
 ```jsx
@@ -83,11 +109,12 @@ The component/element that the Popup component should align to. If `anchor` is n
         }
 
         render() {
-            const { show } = this.state.show;
+            const { show } = this.state;
 
             return (
                 <div>
-                    <button onClick={this.onClick} ref="anchor">Toggle</button>
+                    <button onClick={this.onClick}>Toggle</button>
+                    <div className="anchor" ref="anchor">Anchor</div>
                     <KendoReactPopup anchor={this.refs.anchor} show={show}>
                         <ul>
                             <li>Item1</li>
@@ -114,6 +141,20 @@ The *collision* property defines how the component should treat the horizontal/v
 By default, [`collision`]() configuration property is configured to **fit** horizontally and to **flip** vertically, if the content cannot be displayed properly.
 
 ```html-preview
+  <style>
+    #app {
+        margin-top:250px;
+    }
+
+    .k-popup {
+        position: absolute;
+    }
+
+    .k-popup > div {
+        border: 1px solid red;
+        padding-right: 2em;
+    }
+  </style>
   <div id="app"></div>
 ```
 ```jsx
@@ -131,13 +172,13 @@ By default, [`collision`]() configuration property is configured to **fit** hori
         }
 
         render() {
-            const { show } = this.state.show;
+            const { show } = this.state;
 
             const popupProps = {
                 anchor: this.refs.anchor,
                 collision: {
-                    horizontal: "flip",
-                    vertical: "fit"
+                    horizontal: "fit",
+                    vertical: "flip"
                 },
                 show: show
             };
@@ -170,6 +211,20 @@ Specifies how to position the popup element based on achor point.
 By default, [`origin`]() configuration property is configured to attach the popup to horizontal **left** and vertical **bottom** alignment points.
 
 ```html-preview
+  <style>
+    #app {
+        margin: 120px 150px;
+    }
+
+    .k-popup {
+        position: absolute;
+    }
+
+    .k-popup > div {
+        border: 1px solid red;
+        padding-right: 2em;
+    }
+  </style>
   <div id="app"></div>
 ```
 ```jsx
@@ -187,7 +242,7 @@ By default, [`origin`]() configuration property is configured to attach the popu
         }
 
         render() {
-            const { show } = this.state.show;
+            const { show } = this.state;
 
             const popupProps = {
                 anchor: this.refs.anchor,
@@ -226,6 +281,20 @@ Specifies which point of the popup element to attach to the anchor's origin poin
 By default, [`position`]() configuration property is configured to attach the popup to the anchor's origin point using horizontal **left** and vertical **top** alignment points.
 
 ```html-preview
+  <style>
+    #app {
+        margin: 120px 150px;
+    }
+
+    .k-popup {
+        position: absolute;
+    }
+
+    .k-popup > div {
+        border: 1px solid red;
+        padding-right: 2em;
+    }
+  </style>
   <div id="app"></div>
 ```
 ```jsx
@@ -243,7 +312,7 @@ By default, [`position`]() configuration property is configured to attach the po
         }
 
         render() {
-            const { show } = this.state.show;
+            const { show } = this.state;
 
             const popupProps = {
                 anchor: this.refs.anchor,
