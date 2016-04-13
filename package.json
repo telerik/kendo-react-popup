@@ -27,9 +27,7 @@
   },
   "devDependencies": {
     "@telerik/eslint-config": "1.1.0",
-    "@telerik/kendo-react-animation": "^0.1.10",
     "@telerik/kendo-react-tasks": "^1.0.0",
-    "@telerik/kendo-theme-default": "^1.0.0",
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "^1.0.3",
     "gulp": "3.9.0",
@@ -62,5 +60,9 @@
       "warnOnFail": false,
       "maxSubjectLength": 100
     }
+  },
+  "dependencies": {
+    "@telerik/kendo-react-animation": "^0.1.10",
+    "@telerik/kendo-theme-default": "^1.0.0"
   }
 }
