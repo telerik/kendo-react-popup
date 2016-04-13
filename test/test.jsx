@@ -23,7 +23,10 @@ describe('Popup', () => {
     it('should render k-slide-down transitionName', () => {
         result = shallow(<Popup><div>content</div></Popup>);
 
-        expect(result.props().transitionName).toEqual('k-slide-down');
+        const transitionName = result.props().transitionName;
+
+        expect(transitionName.enter).toEqual('k-slide-down-enter');
+        expect(transitionName.leave).toEqual('k-slide-down-leave');
     });
 
     it('should render k-slide-up transitionName when flipped', () => {
@@ -33,7 +36,10 @@ describe('Popup', () => {
             flipped: true
         });
 
-        expect(result.props().transitionName).toEqual('k-slide-up');
+        const transitionName = result.props().transitionName;
+
+        expect(transitionName.enter).toEqual('k-slide-up-enter');
+        expect(transitionName.leave).toEqual('k-slide-up-leave');
     });
 
     it('should render position style', () => {

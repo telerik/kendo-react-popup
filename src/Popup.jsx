@@ -115,13 +115,16 @@ class Popup extends React.Component {
     render() {
         let { children, show, ...otherProps } = this.props;
         const { flipped, position } = this.state;
-        const transitionName = flipped ? styles['slide-up'] : styles['slide-down'];
 
         let key = new Date().getTime();
         let style = show ? null : { display: 'none' };
 
-        //TODO: Use styles.popup when available
         let popupClassName = 'k-popup';
+
+        const transitionName = {
+            enter: flipped ? styles['slide-up-enter'] : styles['slide-down-enter'],
+            leave: flipped ? styles['slide-up-leave'] : styles['slide-down-leave']
+        };
 
         return (
             <Animation className={popupClassName} {...otherProps} style={position} transitionName={transitionName}>
