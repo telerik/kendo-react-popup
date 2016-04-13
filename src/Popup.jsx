@@ -86,14 +86,14 @@ class Popup extends React.Component {
             const anchorElement = ReactDOM.findDOMNode(anchor);
             const elementContainer = ReactDOM.findDOMNode(this);
 
-            let elementPosition = util.align({
+            const elementPosition = util.align({
                 element: elementContainer,
                 anchor: anchorElement,
                 origins: origin,
                 positions: position
             });
 
-            let positionResult = util.position({
+            const positionResult = util.position({
                 element: elementContainer,
                 elementPosition: elementPosition,
                 anchor: anchorElement,
