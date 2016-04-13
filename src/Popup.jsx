@@ -113,7 +113,7 @@ class Popup extends React.Component {
     }
 
     render() {
-        let { children, show, ...otherProps } = this.props;
+        let { children, show } = this.props;
         const { flipped, position } = this.state;
 
         let key = new Date().getTime();
@@ -127,7 +127,7 @@ class Popup extends React.Component {
         };
 
         return (
-            <Animation className={popupClassName} {...otherProps} style={position} transitionName={transitionName}>
+            <Animation className={popupClassName} style={position} transitionName={transitionName}>
                 <div key={key} style={style}>
                     {children}
                 </div>
