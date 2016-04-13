@@ -2,9 +2,9 @@ import * as React from 'react';
 
 /*eslint react/jsx-no-bind:0*/
 
-const renderOptions = (values, selected) => (
+const renderOptions = (values) => (
     values.map(val => (
-        <option key={val} selected={val === selected}>{val}</option>
+        <option key={val}>{val}</option>
     ))
 );
 
@@ -22,15 +22,15 @@ const ConfigSelector = ({ horizontal, horizontalValues, onChange, vertical, vert
         <div>
             <label>
                 Horizontal:
-                <select onChange={onConfigChange} ref={select => horizontalSelect = select}>
-                    {renderOptions(horizontalValues, horizontal)}
+                <select onChange={onConfigChange} ref={select => horizontalSelect = select} value={horizontal}>
+                    {renderOptions(horizontalValues)}
                 </select>
             </label>
 
             <label>
                 Vertical:
-                <select onChange={onConfigChange} ref={select => verticalSelect = select}>
-                    {renderOptions(verticalValues, vertical)}
+                <select onChange={onConfigChange} ref={select => verticalSelect = select} value={vertical}>
+                    {renderOptions(verticalValues)}
                 </select>
             </label>
         </div>
