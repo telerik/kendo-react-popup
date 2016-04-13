@@ -3,12 +3,20 @@ import * as ReactDOM from 'react-dom';
 
 import { Animation } from '@telerik/kendo-react-animation';
 
-//import styles from '@telerik/kendo-theme-default/styles/example/main';
+import styles from '@telerik/kendo-theme-default/styles/animation/main';
 import util from './util';
 
 class Popup extends React.Component {
     static propTypes = {
-        anchor: function() {}, //TODO: Add check for DOM node
+        anchor: function(props) {
+            const { anchor } = props;
+
+            if (anchor && (!React.isValidElement(anchor) && anchor.nodeType === undefined)) {
+                return new Error(
+                    'Invalid prop `anchor` supplied to `Kendo React Popup`. Validation failed.'
+                );
+            }
+        },
         children: React.PropTypes.oneOfType([
             React.PropTypes.element,
             React.PropTypes.node
