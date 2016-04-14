@@ -67,7 +67,7 @@ For more examples and available configuration options, refer to the [Popup docum
 
 ## Installation
 
-The React Popup is published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in `http://npmjs.org/`.
+The React Popup is published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in http://npmjs.org/.
 
 Install it using NPM:
 
