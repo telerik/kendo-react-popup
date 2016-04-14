@@ -142,10 +142,9 @@ The Popup allows you to set the component or element that it aligns to through t
 
 ### Collisions
 
-The Popup component supports a boundary detection, which tries to position the element within the view port, obeying the `origin` and `position` configuration.
-The [`collision`]({% slug api_popup_kendouiforreact %}#collision-object) property defines the way the component treats the horizontal or vertical collisions within the boundaries of the view port.
+The Popup component supports a boundary detection, which tries to position the element within the view port, obeying the `origin` and `position` configuration. The `collision` property defines the way the component treats the horizontal or vertical collisions within the boundaries of the view port.
 
-By default, the `collision` configuration property is configured to fit horizontally and to flip vertically if the content is not properly displayed.
+By default, the [`collision`]({% slug api_popup_kendouiforreact %}#collision-object) configuration property is configured to fit horizontally and to flip vertically if the content is not properly displayed.
 
 ```html-preview
   <style>
@@ -213,9 +212,9 @@ By default, the `collision` configuration property is configured to fit horizont
 
 ### Origin
 
-The Popup allows to specify its position based on an anchor point through configuring the [`origin`]({% slug api_popup_kendouiforreact %}#origin-object) property.
+The Popup allows to specify its position based on an anchor point through configuring the `origin` property.
 
-By default, the `origin` configuration property is configured to attach the Popup to horizontal left and vertical bottom alignment points.
+By default, the [`origin`]({% slug api_popup_kendouiforreact %}#origin-object) configuration property is configured to attach the Popup to horizontal left and vertical bottom alignment points.
 
 ```html-preview
   <style>
