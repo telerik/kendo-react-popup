@@ -16,11 +16,11 @@
 
 This repository contains the source code and documentation of the Kendo UI Popup component for React.
 
-For more information on forthcoming Popup package features, refer to the [Roadmap](https://github.com/telerik/kendo-react-popup/blob/master/docs/roadmap.md).
+For more information on upcoming Popup package features, refer to the [Roadmap](https://github.com/telerik/kendo-react-popup/blob/master/docs/roadmap.md).
 
 ## Basic Usage
 
-The Popup component allows to position a specific content next to a pre-defined anchor element.
+The Popup component enables you to position a specific content next to a pre-defined anchor element.
 
 ```html-preview
   <div id="app"></div>
