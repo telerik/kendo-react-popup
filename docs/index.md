@@ -6,7 +6,7 @@ slug: overview_popup_kendouiforreact
 position: 1
 ---
 
-# Kendo React Popup Overview (draft)
+# Popup Overview
 
 The Kendo UI Popup for React is a component that enables you to position a specific content next to a pre-defined anchor element.
 
@@ -349,18 +349,6 @@ By default, the [`position`]({% slug api_popup_kendouiforreact %}#position-objec
       document.getElementById('app')
     );
 ```
-
-## Keyboard Navigation
-
-Below is the list with the keyboard shortcuts the Popup supports.
-
-| SHORTCUT                            | DESCRIPTION         |
-|:---                                 |:---                 |
-| `...`                               | Select the last tab.|
-
-## Accessibility
-
-The Popup is WAI ARIA-accessible through the `Tab` key. The `aria-expanded` attribute is set on the currently displayed content of a tab. The `tabindex` attribute will be set to `0` (zero) on the active tab and `-1` (minus one) for the inactive tabs.
 
 ## Suggested Links
 
