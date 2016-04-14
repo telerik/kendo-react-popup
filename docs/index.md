@@ -6,9 +6,16 @@ slug: overview_popup_kendouiforreact
 position: 1
 ---
 
-# Kendo React Popup Overview
+# Kendo React Popup Overview (draft)
 
-The Kendo UI Popup for React is a component that allows to position a specific content next to a pre-defined anchor element.
+The Kendo UI Popup for React is a component that enables you to position a specific content next to a pre-defined anchor element.
+
+**Figure 1: A template of the Kendo UI Popup for React**
+
+//todo: template screen
+
+1. Title
+2. Content area
 
 ## Demos
 
@@ -71,9 +78,9 @@ The example below demonstrates the default setup of a Kendo UI Popup for React.
 
 ### Anchor
 
-The component/element that the Popup component should align to. If `anchor` is not defined, the popup will position in the top left corner of the page.
+The Popup allows you to set the component or element that it aligns to through the `anchor` property. If `anchor` is not defined, the Popup positions in the top-left corner of the page.
 
-> The [`anchor`]() configuration property should be defined in order to position correctly the popup.
+> To correctly position the Popup, make sure you define the [`anchor`]({% slug api_popup_kendouiforreact %}#anchor-elementnode) configuration property.
 
 ```html-preview
   <style>
@@ -135,10 +142,10 @@ The component/element that the Popup component should align to. If `anchor` is n
 
 ### Collisions
 
-The Popup component supports a *boundary detection*, which will try to position the element within the view port, obeying the `origin` and `position` configuration.
-The *collision* property defines how the component should treat the horizontal/vertical collisions with the boundaries of the view port.
+The Popup component supports a boundary detection, which tries to position the element within the view port, obeying the `origin` and `position` configuration.
+The [`collision`]({% slug api_popup_kendouiforreact %}#collision-object) property defines the way the component treats the horizontal or vertical collisions within the boundaries of the view port.
 
-By default, [`collision`]() configuration property is configured to **fit** horizontally and to **flip** vertically, if the content cannot be displayed properly.
+By default, the `collision` configuration property is configured to fit horizontally and to flip vertically if the content is not properly displayed.
 
 ```html-preview
   <style>
@@ -206,9 +213,9 @@ By default, [`collision`]() configuration property is configured to **fit** hori
 
 ### Origin
 
-Specifies how to position the popup element based on achor point.
+The Popup allows to specify its position based on an anchor point through configuring the [`origin`]({% slug api_popup_kendouiforreact %}#origin-object) property.
 
-By default, [`origin`]() configuration property is configured to attach the popup to horizontal **left** and vertical **bottom** alignment points.
+By default, the `origin` configuration property is configured to attach the Popup to horizontal left and vertical bottom alignment points.
 
 ```html-preview
   <style>
@@ -276,9 +283,9 @@ By default, [`origin`]() configuration property is configured to attach the popu
 
 ### Position
 
-Specifies which point of the popup element to attach to the anchor's origin point.
+The Popup enables you to specify which point of the Popup element to attach to the origin point of the anchor.
 
-By default, [`position`]() configuration property is configured to attach the popup to the anchor's origin point using horizontal **left** and vertical **top** alignment points.
+By default, the [`position`]({% slug api_popup_kendouiforreact %}#position-object) configuration property is configured to attach the Popup to the origin point of the anchor using horizontal left and vertical top alignment points.
 
 ```html-preview
   <style>
@@ -343,3 +350,19 @@ By default, [`position`]() configuration property is configured to attach the po
       document.getElementById('app')
     );
 ```
+
+## Keyboard Navigation
+
+Below is the list with the keyboard shortcuts the Popup supports.
+
+| SHORTCUT                            | DESCRIPTION         |
+|:---                                 |:---                 |
+| `...`                               | Select the last tab.|
+
+## Accessibility
+
+The Popup is WAI ARIA-accessible through the `Tab` key. The `aria-expanded` attribute is set on the currently displayed content of a tab. The `tabindex` attribute will be set to `0` (zero) on the active tab and `-1` (minus one) for the inactive tabs.
+
+## Suggested Links
+
+* [Client-Side API Reference for the Kendo UI Popup Component]({% slug api_popup_kendouiforreact %})

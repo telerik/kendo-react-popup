@@ -10,57 +10,57 @@ position: 2
 
 Represents the Kendo UI Popup component for React.
 
-## Anchor element
+## Anchor
 
 #### anchor `Element|Node`
 
-Specifies the element that will be used as an anchor. The popup will open next to that element.
+Specifies the element that will be used as an anchor. The Popup will open next to that element.
 
-> The `anchor` component/element is required in order to position the popup correctly.
+> To correctly position the Popup, make sure you define the `anchor` configuration property.
 
-## Boundary detection
+## Boundary Detection
 
-### collision `Object`
+#### collision `Object`
 
-Configures the collision behavior of the popup.
+Configures the collision behavior of the Popup.
 
-#### collision.horizontal `String`*(default: "fit")
+#### collision.horizontal `String`*(default: "fit")*
 
-Defines how to position the popup horizontally when it is not fully visible.
-
-The available options are:
-
-* `fit`&mdash;Moves the popup horizontally until it is fully displayed in the view port.
-* `flip`&mdash;Flips the popup position based on the `origin` and `position` properties.
-
-#### collision.vertical `String`*(default: "flip")
-
-Defines how to position the popup vertically when it is not fully visible.
+Defines the horizontal position of the Popup when it is not fully visible.
 
 The available options are:
 
-* `fit`&mdash;Moves the popup vertically until it is fully displayed in the view port.
-* `flip`&mdash;Flips the popup position based on the `origin` and `position` properties.
+* `fit`&mdash;Moves the Popup horizontally until it is fully displayed in the view port.
+* `flip`&mdash;Flips the Popup position based on the `origin` and `position` properties.
+
+#### collision.vertical `String`*(default: "flip")*
+
+Defines the vertical position of the Popup when it is not fully visible.
+
+The available options are:
+
+* `fit`&mdash;Move the Popup vertically until it is fully displayed in the view port.
+* `flip`&mdash;Flip the Popup position based on the `origin` and `position` properties.
 
 ## Positioning
 
-### origin `Object`
+#### origin `Object`
 
-Specifies how to position the popup element based on achor point.
+Specifies the position of the Popup element based on the anchor point.
 
-#### origin.horizontal `String`*(default: "left")
+#### origin.horizontal `String`*(default: "left")*
 
-Specifies the alignment point of the anchor, when popup is positioned on the `x` axis.
+Specifies the alignment point of the anchor, when the Popup is positioned on the `x` axis.
 
 The available options are:
 
-* `left`&mdash;Use the most left point of the anchor element.
+* `left`&mdash;Use the leftmost point of the anchor element.
 * `center`&mdash;Use the center point of the anchor element.
-* `right`&mdash;Use the most right point of the anchor element.
+* `right`&mdash;Use the rightmost point of the anchor element.
 
-#### origin.vertival `String`*(default: "bottom")
+#### origin.vertival `String`*(default: "bottom")*
 
-Specifies the alignment point of the anchor, when popup is positioned on the `y` axis.
+Specifies the alignment point of the anchor, when the Popup is positioned on the `y` axis.
 
 The available options are:
 
@@ -68,34 +68,34 @@ The available options are:
 * `center`&mdash;Use the center point of the anchor element.
 * `bottom`&mdash;Use the bottom point of the anchor element.
 
-### position `Object`
+#### position `Object`
 
-Specifies which point of the popup element to attach to the anchor's origin point.
+Specifies which point of the Popup element to attach to the origin point of the anchor.
 
-#### position.horizontal `String`*(default: "left")
+#### position.horizontal `String`*(default: "left")*
 
-Specifies the horizontal alignment point of the popup that will be attached to anchor's `origin` horizontal point.
-
-The available options are:
-
-* `left`&mdash;Use the most left point of the popup element.
-* `center`&mdash;Use the center point of the popup element.
-* `right`&mdash;Use the most right point of the popup element.
-
-#### position.vertival `String`*(default: "top")
-
-Specifies the vertival alignment point of the popup that will be attached to anchor's `origin` vertival point.
+Specifies the horizontal alignment point of the Popup that will be attached to the `origin` horizontal point of the anchor.
 
 The available options are:
 
-* `top`&mdash;Use the top point of the popup element.
-* `center`&mdash;Use the center point of the popup element.
-* `bottom`&mdash;Use the bottom point of the popup element.
+* `left`&mdash;Use the leftmost point of the Popup element.
+* `center`&mdash;Use the center point of the Popup element.
+* `right`&mdash;Use the rightmost point of the Popup element.
 
-## Show/hide the Popup component
+#### position.vertival `String`*(default: "top")*
 
-#### show `Boolean`*(default: false)
+Specifies the vertical alignment point of the Popup that will be attached to the `origin` vertical point of the anchor.
 
-Specifies whether to show the popup or hide it.
+The available options are:
 
-> The Popup should be rendered initially hidden. Any subsequent props update can show/hide the popup.
+* `top`&mdash;Use the top point of the Popup element.
+* `center`&mdash;Use the center point of the Popup element.
+* `bottom`&mdash;Use the bottom point of the Popup element.
+
+## Showing and Hiding
+
+#### show `Boolean`*(default: false)*
+
+Specifies whether to show or hide the Popup.
+
+> You must initially render the Popup as hidden. Each subsequent props update allows you to show or hide it.
