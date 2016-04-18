@@ -1,7 +1,7 @@
 {
   "name": "@telerik/kendo-react-popup",
   "description": "Kendo UI React Popup component",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/telerik/kendo-react-popup.git"
@@ -25,9 +25,13 @@
     "react": "~0.14.3",
     "react-dom": "~0.14.3"
   },
+  "dependencies": {
+    "@telerik/kendo-react-animation": "^0.1.10"
+  },
   "devDependencies": {
     "@telerik/eslint-config": "1.1.0",
     "@telerik/kendo-react-tasks": "^1.0.0",
+    "@telerik/kendo-theme-default": "^1.0.0",
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "^1.0.3",
     "gulp": "3.9.0",
@@ -60,9 +64,5 @@
       "warnOnFail": false,
       "maxSubjectLength": 100
     }
-  },
-  "dependencies": {
-    "@telerik/kendo-react-animation": "^0.1.10",
-    "@telerik/kendo-theme-default": "^1.0.0"
   }
 }
