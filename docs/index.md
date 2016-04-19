@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Overview | Kendo UI Popup for React
-description: "Learn how to use Kendo UI Popup for React."
+description: "Use the Kendo UI Popup component in a React project."
 slug: overview_popup_kendouiforreact
 position: 1
 ---
