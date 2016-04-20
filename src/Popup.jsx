@@ -76,11 +76,15 @@ class Popup extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { position: null };
+        this.state = { key: util.key(), position: null };
     }
 
     componentWillReceiveProps(newProps) {
         let { anchor, collision, origin, position, show } = newProps;
+
+        if (this.props.show !== show) {
+            this.setState({ key: util.key() });
+        }
 
         if (anchor && show) {
             const anchorElement = ReactDOM.findDOMNode(anchor);
@@ -114,9 +118,8 @@ class Popup extends React.Component {
 
     render() {
         let { children, show } = this.props;
-        const { flipped, position } = this.state;
+        const { flipped, key, position } = this.state;
 
-        let key = new Date().getTime();
         let style = show ? null : { display: 'none' };
 
         let popupClassName = 'k-popup';

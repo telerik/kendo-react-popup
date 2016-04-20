@@ -68,4 +68,18 @@ describe('Popup', () => {
 
         expect(child.children().length).toEqual(1);
     });
+
+    it('should keep same key if show prop was not changed', () => {
+        result = shallow(<Popup><div>content</div></Popup>);
+
+        result.setProps({ show: true });
+
+        const contentKey = result.children().at(0).node.key;
+
+        result.setProps({ show: true });
+
+        const child = result.children().at(0);
+
+        expect(child.node.key).toEqual(contentKey);
+    });
 });

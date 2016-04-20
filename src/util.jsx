@@ -244,10 +244,13 @@ const positionRect = (element) => {
     };
 };
 
+const key = () => ( new Date().getTime() );
+
 export default {
     align: align,
     alignPoint: alignPoint,
     collision: collision,
+    key: key,
     offsetRect: offsetRect,
     positionRect: positionRect,
     position: position
