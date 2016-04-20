@@ -1,12 +1,12 @@
 ---
-title: Client-Side API
-page_title: Client-Side API | Kendo UI Popup for React
-description: "Configure the Kendo UI Popup for React through its client-side API reference."
+title: API
+page_title: API | Kendo UI Popup for React
+description: "Configure the Kendo UI Popup for React through its API reference."
 slug: api_popup_kendouiforreact
 position: 2
 ---
 
-# Popup Client-Side API
+# Popup API
 
 Represents the Kendo UI Popup component for React.
 
