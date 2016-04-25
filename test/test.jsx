@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 import Popup from '../src/Popup';
-import { Animation } from '@telerik/kendo-react-animation';
+import { Slide } from '@telerik/kendo-react-animation';
 
 describe('Popup', () => {
     let result;
 
     beforeEach(() => { /* test setup */ });
 
-    it('should render an Animation component', () => {
+    it('should render an Slide component', () => {
         result = shallow(<Popup />);
 
-        expect(result.type()).toEqual(Animation);
+        expect(result.type()).toEqual(Slide);
     });
 
     it('should render k-popup className', () => {
@@ -20,26 +20,24 @@ describe('Popup', () => {
         expect(result.props().className).toEqual('k-popup');
     });
 
-    it('should render k-slide-down transitionName', () => {
+    it('should render Slide with "down" direction', () => {
         result = shallow(<Popup><div>content</div></Popup>);
 
-        const transitionName = result.props().transitionName;
+        const direction = result.props().direction;
 
-        expect(transitionName.enter).toEqual('k-slide-down-enter');
-        expect(transitionName.leave).toEqual('k-slide-down-leave');
+        expect(direction).toEqual('down');
     });
 
-    it('should render k-slide-up transitionName when flipped', () => {
+    it('should render Slide with "up" direction when flipped', () => {
         result = shallow(<Popup><div>content</div></Popup>);
 
         result.setState({
             flipped: true
         });
 
-        const transitionName = result.props().transitionName;
+        const direction = result.props().direction;
 
-        expect(transitionName.enter).toEqual('k-slide-up-enter');
-        expect(transitionName.leave).toEqual('k-slide-up-leave');
+        expect(direction).toEqual('up');
     });
 
     it('should render position style', () => {
@@ -52,34 +50,15 @@ describe('Popup', () => {
         expect(result.props().style).toEqual(result.state().position);
     });
 
-    it('should render a hidden child div', () => {
-        result = shallow(<Popup />);
-
-        const child = result.children().at(0);
-
-        expect(child.type()).toEqual('div');
-        expect(child.props().style.display).toEqual('none');
-    });
-
-    it('should render passed children', () => {
+    it('should not render passed children show:false', () => {
         result = shallow(<Popup><div>content</div></Popup>);
 
-        const child = result.children().at(0);
-
-        expect(child.children().length).toEqual(1);
+        expect(result.children().length).toEqual(0);
     });
 
-    it('should keep same key if show prop was not changed', () => {
-        result = shallow(<Popup><div>content</div></Popup>);
+    it('should render passed children show:true', () => {
+        result = shallow(<Popup show><div>content</div></Popup>);
 
-        result.setProps({ show: true });
-
-        const contentKey = result.children().at(0).node.key;
-
-        result.setProps({ show: true });
-
-        const child = result.children().at(0);
-
-        expect(child.node.key).toEqual(contentKey);
+        expect(result.children().length).toEqual(1);
     });
 });

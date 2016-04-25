@@ -156,18 +156,13 @@ const offsetParent = (element) => {
 
 const rectOfHiddenElement = (element) => {
     const { display, left, position } = element.style;
-    const child = element.children[0];
-    const childDisplay = child.style.display;
-    let rect;
 
-    child.style.display = '';
     element.style.display = '';
     element.style.left = '-10000px';
     element.style.position = 'absolute';
 
-    rect = element.getBoundingClientRect();
+    const rect = element.getBoundingClientRect();
 
-    child.style.display = childDisplay;
     element.style.display = display;
     element.style.left = left;
     element.style.position = position;

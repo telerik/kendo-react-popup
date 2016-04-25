@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { Animation } from '@telerik/kendo-react-animation';
+import { Slide } from '@telerik/kendo-react-animation';
 
-import styles from '@telerik/kendo-theme-default/styles/animation/main';
+//import styles from '@telerik/kendo-theme-default/styles/animation/main';
 import util from './util';
 
 class Popup extends React.Component {
@@ -76,15 +76,11 @@ class Popup extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { key: util.key(), position: null };
+        this.state = { position: null };
     }
 
     componentWillReceiveProps(newProps) {
         let { anchor, collision, origin, position, show } = newProps;
-
-        if (this.props.show !== show) {
-            this.setState({ key: util.key() });
-        }
 
         if (anchor && show) {
             const anchorElement = ReactDOM.findDOMNode(anchor);
@@ -118,23 +114,22 @@ class Popup extends React.Component {
 
     render() {
         let { children, show } = this.props;
-        const { flipped, key, position } = this.state;
+        const { flipped, position } = this.state;
+        const direction = flipped ? "up" : "down";
 
-        let style = show ? null : { display: 'none' };
+        const content = show ? children : null;
 
         let popupClassName = 'k-popup';
 
-        const transitionName = {
+        /*const transitionName = {
             enter: flipped ? styles['slide-up-enter'] : styles['slide-down-enter'],
             leave: flipped ? styles['slide-up-leave'] : styles['slide-down-leave']
-        };
+            };*/
 
         return (
-            <Animation className={popupClassName} style={position} transitionName={transitionName}>
-                <div key={key} style={style}>
-                    {children}
-                </div>
-            </Animation>
+            <Slide className={popupClassName} direction={direction} style={position}>
+                {content}
+            </Slide>
         );
     }
 }
