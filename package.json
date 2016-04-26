@@ -26,7 +26,7 @@
     "react-dom": "~15.0.1"
   },
   "dependencies": {
-    "@telerik/kendo-react-animation": "^0.3.0"
+    "@telerik/kendo-react-animation": "^0.1.0"
   },
   "devDependencies": {
     "@telerik/eslint-config": "1.1.0",
@@ -37,6 +37,7 @@
     "gulp": "3.9.0",
     "react": "~15.0.1",
     "react-dom": "~15.0.1",
+    "react-addons-transition-group": "~15.0.1",
     "semantic-release": "^4.3.5",
     "validate-commit-msg": "^1.1.1"
   },
