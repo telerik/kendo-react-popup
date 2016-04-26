@@ -1,7 +1,7 @@
 {
   "name": "@telerik/kendo-react-popup",
   "description": "Kendo UI React Popup component",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/telerik/kendo-react-popup.git"
