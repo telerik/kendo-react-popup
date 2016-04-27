@@ -19,13 +19,15 @@ class BasicDemo extends React.Component {
             },
             collisionValues: collisionValues,
             horizontalValues: horizontalValues,
-            origin: {
-                horizontal: Popup.origin.left,
-                vertical: Popup.origin.bottom
-            },
             position: {
-                horizontal: Popup.position.left,
-                vertical: Popup.position.top
+                anchor: {
+                    horizontal: Popup.origin.left,
+                    vertical: Popup.origin.bottom
+                },
+                popup: {
+                    horizontal: Popup.position.left,
+                    vertical: Popup.position.top
+                }
             },
             show: false,
             verticalValues: verticalValues
@@ -40,13 +42,19 @@ class BasicDemo extends React.Component {
 
     originChange = (origins) => {
         this.setState({
-            origin: origins
+            position: {
+                anchor: origins,
+                popup: this.state.position.popup
+            }
         });
     }
 
     positionChange = (positions) => {
         this.setState({
-            position: positions
+            position: {
+                anchor: this.state.position.anchor,
+                popup: positions
+            }
         });
     }
 
@@ -63,7 +71,6 @@ class BasicDemo extends React.Component {
             collision,
             collisionValues,
             horizontalValues,
-            origin,
             position,
             show,
             verticalValues
@@ -72,7 +79,6 @@ class BasicDemo extends React.Component {
         const popupProps = {
             anchor: this.refs.anchor,
             collision: collision,
-            origin: origin,
             position: position,
             show: show
         };
@@ -106,7 +112,7 @@ class BasicDemo extends React.Component {
                     <div>
                         <h4>Origin</h4>
                         <ConfigSelector
-                            {...origin}
+                            {...position.anchor}
                             horizontalValues={horizontalValues}
                             onChange={this.originChange}
                             verticalValues={verticalValues}
@@ -115,7 +121,7 @@ class BasicDemo extends React.Component {
                     <div>
                         <h4>Position</h4>
                         <ConfigSelector
-                            {...position}
+                            {...position.popup}
                             horizontalValues={horizontalValues}
                             onChange={this.positionChange}
                             verticalValues={verticalValues}
