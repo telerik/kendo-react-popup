@@ -44,13 +44,17 @@ The available options are:
 
 ## Positioning
 
-#### origin `Object`
+#### position `Object`
 
-Specifies the position of the Popup element based on the anchor point.
+Speacifies the pivot points of the anchor and popup that will be aligned.
 
-#### origin.horizontal `String`*(default: "left")*
+#### position.anchor `Object`
 
-Specifies the alignment point of the anchor, when the Popup is positioned on the `x` axis.
+Specifies the anchor pivot point.
+
+#### position.anchor.horizontal `String`*(default: "left")*
+
+Specifies the horizontal alignment point of the anchor.
 
 The available options are:
 
@@ -58,9 +62,9 @@ The available options are:
 * `center`&mdash;Use the center point of the anchor element.
 * `right`&mdash;Use the rightmost point of the anchor element.
 
-#### origin.vertival `String`*(default: "bottom")*
+#### position.anchor.vertival `String`*(default: "bottom")*
 
-Specifies the alignment point of the anchor, when the Popup is positioned on the `y` axis.
+Specifies the vertical alignment point of the anchor.
 
 The available options are:
 
@@ -68,13 +72,13 @@ The available options are:
 * `center`&mdash;Use the center point of the anchor element.
 * `bottom`&mdash;Use the bottom point of the anchor element.
 
-#### position `Object`
+#### position.popup `Object`
 
-Specifies which point of the Popup element to attach to the origin point of the anchor.
+Specifies the popup pivot point.
 
-#### position.horizontal `String`*(default: "left")*
+#### position.popup.horizontal `String`*(default: "left")*
 
-Specifies the horizontal alignment point of the Popup that will be attached to the `origin` horizontal point of the anchor.
+Specifies the horizontal alignment point of the Popup.
 
 The available options are:
 
@@ -82,9 +86,9 @@ The available options are:
 * `center`&mdash;Use the center point of the Popup element.
 * `right`&mdash;Use the rightmost point of the Popup element.
 
-#### position.vertival `String`*(default: "top")*
+#### position.popup.vertival `String`*(default: "top")*
 
-Specifies the vertical alignment point of the Popup that will be attached to the `origin` vertical point of the anchor.
+Specifies the vertical alignment point of the Popup.
 
 The available options are:
 
@@ -97,5 +101,3 @@ The available options are:
 #### show `Boolean`*(default: false)*
 
 Specifies whether to show or hide the Popup.
-
-> You must initially render the Popup as hidden. Each subsequent props update allows you to show or hide it.

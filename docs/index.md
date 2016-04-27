@@ -8,31 +8,38 @@ position: 1
 
 # Popup Overview
 
-The Kendo UI Popup for React is a component that enables you to position a specific content next to a pre-defined anchor element.
+The Kendo UI Popup for React is a component that positions a content next to a specific anchor component.
 
-**Figure 1: A template of the Kendo UI Popup for React**
+**Figure 1: Kendo UI Popup for React**
 
-//todo: template screen
+![Popup](images/left-align.png)
 
-1. Title
-2. Content area
-
-## Demos
-
-### Default Setup
+## Default Setup
 
 The example below demonstrates the default setup of a Kendo UI Popup for React.
 
 ```html-preview
   <style>
-    .k-popup {
-        position: absolute;
-    }
+      .content {
+        padding: 10px;
+        color: #787878;
+        background-color: #fcf7f8;
+        font-size: 13px;
+        font-family: Helvetica, Arial, sans-serif;
+        letter-spacing: 1px;
+        text-align: center;
+        border: 1px solid rgba(0,0,0,.05);
+      }
 
-    .k-popup > div {
-        border: 1px solid red;
-        padding-right: 2em;
-    }
+      .anchor {
+        width: 80px;
+        height: 40px;
+      }
+
+      .popup {
+        width: 100px;
+        height: 70px;
+      }
   </style>
   <div id="app"></div>
 ```
@@ -55,8 +62,8 @@ The example below demonstrates the default setup of a Kendo UI Popup for React.
 
             return (
                 <div>
-                    <button onClick={this.onClick} ref="anchor">Toggle</button>
-                    <KendoReactPopup anchor={this.refs.anchor} show={show}>
+                    <button className="anchor content" onClick={this.onClick} ref="anchor">Toggle</button>
+                    <KendoReactPopup anchor={this.refs.anchor} className="content popup" show={show}>
                         <ul>
                             <li>Item1</li>
                             <li>Item2</li>
@@ -78,26 +85,34 @@ The example below demonstrates the default setup of a Kendo UI Popup for React.
 
 ### Anchor
 
-The Popup allows you to set the component or element that it aligns to through the `anchor` property. If `anchor` is not defined, the Popup positions in the top-left corner of the page.
+To align the Popup to a specific component use the `anchor` property. The Popup will open next to the defined anchor component.
 
 > To correctly position the Popup, make sure you define the [`anchor`]({% slug api_popup_kendouiforreact %}#anchor-elementnode) configuration property.
 
-```html-preview
+```html
   <style>
-    .anchor {
+      .content {
+        padding: 10px;
+        color: #787878;
+        background-color: #fcf7f8;
+        font-size: 13px;
+        font-family: Helvetica, Arial, sans-serif;
+        letter-spacing: 1px;
+        text-align: center;
+        border: 1px solid rgba(0,0,0,.05);
+      }
+
+      .anchor {
         position: absolute;
         top: 100px;
         left: 100px;
-    }
+        width: 80px;
+      }
 
-    .k-popup {
-        position: absolute;
-    }
-
-    .k-popup > div {
-        border: 1px solid red;
-        padding-right: 2em;
-    }
+      .popup {
+        width: 100px;
+        height: 70px;
+      }
   </style>
   <div id="app"></div>
 ```
@@ -121,8 +136,8 @@ The Popup allows you to set the component or element that it aligns to through t
             return (
                 <div>
                     <button onClick={this.onClick}>Toggle</button>
-                    <div className="anchor" ref="anchor">Anchor</div>
-                    <KendoReactPopup anchor={this.refs.anchor} show={show}>
+                    <div className="anchor content" ref="anchor">Anchor</div>
+                    <KendoReactPopup anchor={this.refs.anchor} className="content popup" show={show}>
                         <ul>
                             <li>Item1</li>
                             <li>Item2</li>
@@ -142,24 +157,35 @@ The Popup allows you to set the component or element that it aligns to through t
 
 ### Collisions
 
-The Popup component supports a boundary detection, which tries to position the element within the view port, obeying the `origin` and `position` configuration. The `collision` property defines the way the component treats the horizontal or vertical collisions within the boundaries of the view port.
+To define the Popup boundary detection behavior use the [`collision`]({% slug api_popup_kendouiforreact %}#collision-object) property. It specifies how the component should behave when it does not fit in the view port.
 
-By default, the [`collision`]({% slug api_popup_kendouiforreact %}#collision-object) configuration property is configured to fit horizontally and to flip vertically if the content is not properly displayed.
+By default, the Popup will fit horizontally and will flip vertically.
 
-```html-preview
+```html
   <style>
-    #app {
+      #app {
         margin-top:250px;
-    }
+      }
 
-    .k-popup {
-        position: absolute;
-    }
+      .content {
+        padding: 10px;
+        color: #787878;
+        background-color: #fcf7f8;
+        font-size: 13px;
+        font-family: Helvetica, Arial, sans-serif;
+        letter-spacing: 1px;
+        text-align: center;
+        border: 1px solid rgba(0,0,0,.05);
+      }
 
-    .k-popup > div {
-        border: 1px solid red;
-        padding-right: 2em;
-    }
+      .anchor {
+        width: 80px;
+      }
+
+      .popup {
+        width: 100px;
+        height: 70px;
+      }
   </style>
   <div id="app"></div>
 ```
@@ -191,8 +217,8 @@ By default, the [`collision`]({% slug api_popup_kendouiforreact %}#collision-obj
 
             return (
                 <div>
-                    <button onClick={this.onClick} ref="anchor">Toggle</button>
-                    <KendoReactPopup {...popupProps}>
+                    <button className="anchor content" onClick={this.onClick} ref="anchor">Toggle</button>
+                    <KendoReactPopup className="content popup" {...popupProps}>
                         <ul>
                             <li>Item1</li>
                             <li>Item2</li>
@@ -210,59 +236,105 @@ By default, the [`collision`]({% slug api_popup_kendouiforreact %}#collision-obj
     );
 ```
 
-### Origin
+### Positioning
 
-The Popup allows to specify its position based on an anchor point through configuring the `origin` property.
+The component positioning is controlled by specific pivot points. Both, the anchor and Popup components are treated as rectangular elements, hence each has 9 pivot points.
+Every Popup point can be aligned to an anchor point.
 
-By default, the [`origin`]({% slug api_popup_kendouiforreact %}#origin-object) configuration property is configured to attach the Popup to horizontal left and vertical bottom alignment points.
+**Figure 2: A right aligned Kendo UI Popup**
+
+![Popup](images/right-align.png)
+
+The Popup aligns to the anchor using its top-right point and anchor's bottom-right point.
 
 ```html-preview
   <style>
-    #app {
+      #app {
         margin: 120px 150px;
-    }
+      }
 
-    .k-popup {
-        position: absolute;
-    }
+      .content {
+        padding: 10px;
+        color: #787878;
+        background-color: #fcf7f8;
+        font-size: 13px;
+        font-family: Helvetica, Arial, sans-serif;
+        letter-spacing: 1px;
+        text-align: center;
+        border: 1px solid rgba(0,0,0,.05);
+      }
 
-    .k-popup > div {
-        border: 1px solid red;
-        padding-right: 2em;
-    }
+      .anchor {
+        width: 80px;
+      }
+
+      .popup {
+        width: 100px;
+        height: 70px;
+      }
+
+      fieldset {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+      }
   </style>
   <div id="app"></div>
 ```
 ```jsx
-    class BasicDemo extends React.Component {
-        constructor(props) {
-            super(props);
+class BasicDemo extends React.Component {
+    constructor(props) {
+        super(props);
 
-            this.state = { show: false };
-        }
+        this.state = {
+            anchorPosition: {
+                horizontal: "left",
+                vertical: "bottom"
+            },
+            popupPosition: {
+                horizontal: "right",
+                vertical: "top"
+            },
+            show: false
+        };
+    }
 
-        onClick = () => {
-            this.setState({
-                show: !this.state.show
-            });
-        }
+    onClick = () => {
+        this.setState({
+            show: !this.state.show
+        });
+    }
 
-        render() {
-            const { show } = this.state;
+    onConfigChange = () => {
+        this.setState({
+            anchorPosition: {
+                horizontal: this.refs.anchorHorizontal.value,
+                vertical: this.refs.anchorVertical.value
+            },
+            popupPosition: {
+                horizontal: this.refs.popupHorizontal.value,
+                vertical: this.refs.popupVertical.value
+            }
+        });
+    }
 
-            const popupProps = {
-                anchor: this.refs.anchor,
-                origin: {
-                    horizontal: "right",
-                    vertical: "bottom"
-                },
-                show: show
-            };
+    render() {
+        const { anchorPosition, popupPosition, show } = this.state;
 
-            return (
-                <div>
-                    <button onClick={this.onClick} ref="anchor">Toggle</button>
-                    <KendoReactPopup {...popupProps}>
+        const popupProps = {
+            anchor: this.refs.anchor,
+            position: {
+                anchor: anchorPosition,
+                popup: popupPosition
+            },
+            show: show
+        };
+
+        return (
+            <div>
+                <div style={{ display: "inline-block", width: "200px" }}>
+                    <button className="anchor content" ref="anchor">ANCHOR</button>
+                    <KendoReactPopup className="content popup" {...popupProps}>
                         <ul>
                             <li>Item1</li>
                             <li>Item2</li>
@@ -270,84 +342,67 @@ By default, the [`origin`]({% slug api_popup_kendouiforreact %}#origin-object) c
                         </ul>
                     </KendoReactPopup>
                 </div>
-            );
-        }
+
+                <fieldset style={{ display: "inline-block", width: "400px" }}>
+                    <div>
+                        <h4>Popup action</h4>
+                        <button onClick={this.onClick}>{show ? 'Close' : 'Open'}</button>
+                    </div>
+                    <hr />
+                    <div>
+                        <h4>Anchor Position</h4>
+                        <div>
+                            <label>
+                                Horizontal:
+                                <select onChange={this.onConfigChange} ref="anchorHorizontal" value={anchorPosition.horizontal}>
+                                    <option value="left">Left</option>
+                                    <option value="center">Center</option>
+                                    <option value="right">Right</option>
+                                </select>
+                            </label>
+
+                            <label>
+                                Vertical:
+                                <select onChange={this.onConfigChange} ref="anchorVertical" value={anchorPosition.vertical}>
+                                    <option value="top">Top</option>
+                                    <option value="middle">Middle</option>
+                                    <option value="bottom">Bottom</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Popup Position</h4>
+                        <div>
+                            <label>
+                                Horizontal:
+                                <select onChange={this.onConfigChange} ref="popupHorizontal" value={popupPosition.horizontal}>
+                                    <option value="left">Left</option>
+                                    <option value="center">Center</option>
+                                    <option value="right">Right</option>
+                                </select>
+                            </label>
+
+                            <label>
+                                Vertical:
+                                <select onChange={this.onConfigChange} ref="popupVertical" value={popupPosition.vertical}>
+                                    <option value="top">Top</option>
+                                    <option value="middle">Middle</option>
+                                    <option value="bottom">Bottom</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        );
     }
+}
 
-    ReactDOM.render(
-      <BasicDemo />,
-      document.getElementById('app')
-    );
-```
-
-### Position
-
-The Popup enables you to specify which point of the Popup element to attach to the origin point of the anchor.
-
-By default, the [`position`]({% slug api_popup_kendouiforreact %}#position-object) configuration property is configured to attach the Popup to the origin point of the anchor using horizontal left and vertical top alignment points.
-
-```html-preview
-  <style>
-    #app {
-        margin: 120px 150px;
-    }
-
-    .k-popup {
-        position: absolute;
-    }
-
-    .k-popup > div {
-        border: 1px solid red;
-        padding-right: 2em;
-    }
-  </style>
-  <div id="app"></div>
-```
-```jsx
-    class BasicDemo extends React.Component {
-        constructor(props) {
-            super(props);
-
-            this.state = { show: false };
-        }
-
-        onClick = () => {
-            this.setState({
-                show: !this.state.show
-            });
-        }
-
-        render() {
-            const { show } = this.state;
-
-            const popupProps = {
-                anchor: this.refs.anchor,
-                position: {
-                    horizontal: "right",
-                    vertical: "top"
-                },
-                show: show
-            };
-
-            return (
-                <div>
-                    <button onClick={this.onClick} ref="anchor">Toggle</button>
-                    <KendoReactPopup {...popupProps}>
-                        <ul>
-                            <li>Item1</li>
-                            <li>Item2</li>
-                            <li>Item3</li>
-                        </ul>
-                    </KendoReactPopup>
-                </div>
-            );
-        }
-    }
-
-    ReactDOM.render(
-      <BasicDemo />,
-      document.getElementById('app')
-    );
+ReactDOM.render(
+    <BasicDemo />,
+    document.getElementById('app')
+);
 ```
 
 ## Suggested Links
