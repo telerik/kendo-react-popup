@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 
 import { Slide } from '@telerik/kendo-react-animation';
 
-//import styles from '@telerik/kendo-theme-default/styles/animation/main';
+import styles from '@telerik/kendo-theme-default/styles/popups/main';
 import util from './util';
 
 class Popup extends React.Component {
@@ -21,6 +21,7 @@ class Popup extends React.Component {
             React.PropTypes.element,
             React.PropTypes.node
         ]),
+        className: React.PropTypes.string,
         collision: React.PropTypes.shape({
             horizontal: React.PropTypes.oneOf([
                 util.collision.fit,
@@ -31,29 +32,35 @@ class Popup extends React.Component {
                 util.collision.flip
             ])
         }),
-        origin: React.PropTypes.shape({
-            horizontal: React.PropTypes.oneOf([
-                util.alignPoint.left,
-                util.alignPoint.center,
-                util.alignPoint.right
-            ]),
-            vertical: React.PropTypes.oneOf([
-                util.alignPoint.bottom,
-                util.alignPoint.center,
-                util.alignPoint.top
-            ])
-        }),
         position: React.PropTypes.shape({
-            horizontal: React.PropTypes.oneOf([
-                util.alignPoint.left,
-                util.alignPoint.center,
-                util.alignPoint.right
-            ]),
-            vertical: React.PropTypes.oneOf([
-                util.alignPoint.bottom,
-                util.alignPoint.center,
-                util.alignPoint.top
-            ])
+            anchor: React.PropTypes.shape({
+                horizontal: React.PropTypes.oneOf([
+                    util.alignPoint.left,
+                    util.alignPoint.center,
+                    util.alignPoint.middle,
+                    util.alignPoint.right
+                ]),
+                vertical: React.PropTypes.oneOf([
+                    util.alignPoint.bottom,
+                    util.alignPoint.center,
+                    util.alignPoint.middle,
+                    util.alignPoint.top
+                ])
+            }),
+            popup: React.PropTypes.shape({
+                horizontal: React.PropTypes.oneOf([
+                    util.alignPoint.left,
+                    util.alignPoint.center,
+                    util.alignPoint.middle,
+                    util.alignPoint.right
+                ]),
+                vertical: React.PropTypes.oneOf([
+                    util.alignPoint.bottom,
+                    util.alignPoint.center,
+                    util.alignPoint.middle,
+                    util.alignPoint.top
+                ])
+            })
         }),
         show: React.PropTypes.bool
     }
@@ -63,13 +70,15 @@ class Popup extends React.Component {
             horizontal: util.collision.fit,
             vertical: util.collision.flip
         },
-        origin: {
-            horizontal: util.alignPoint.left,
-            vertical: util.alignPoint.bottom
-        },
         position: {
-            horizontal: util.alignPoint.left,
-            vertical: util.alignPoint.top
+            anchor: {
+                horizontal: util.alignPoint.left,
+                vertical: util.alignPoint.bottom
+            },
+            popup: {
+                horizontal: util.alignPoint.left,
+                vertical: util.alignPoint.top
+            }
         }
     }
 
@@ -79,55 +88,54 @@ class Popup extends React.Component {
         this.state = { position: null };
     }
 
-    componentWillReceiveProps(newProps) {
-        let { anchor, collision, origin, position, show } = newProps;
+    position = () => {
+        let { anchor, collision, position } = this.props;
 
-        if (anchor && show) {
-            const anchorElement = ReactDOM.findDOMNode(anchor);
-            const elementContainer = ReactDOM.findDOMNode(this);
+        const anchorElement = ReactDOM.findDOMNode(anchor);
+        const elementContainer = ReactDOM.findDOMNode(this);
 
-            const elementPosition = util.align({
-                element: elementContainer,
-                anchor: anchorElement,
-                origins: origin,
-                positions: position
-            });
+        const elementPosition = util.align({
+            element: elementContainer,
+            anchor: anchorElement,
+            origins: position.anchor,
+            positions: position.popup
+        });
 
-            const positionResult = util.position({
-                element: elementContainer,
-                elementPosition: elementPosition,
-                anchor: anchorElement,
-                collisions: collision,
-                origins: origin,
-                positions: position
-            });
+        const positionResult = util.position({
+            element: elementContainer,
+            elementPosition: elementPosition,
+            anchor: anchorElement,
+            collisions: collision,
+            origins: position.anchor,
+            positions: position.popup
+        });
 
-            elementPosition.top += positionResult.position.top;
-            elementPosition.left += positionResult.position.left;
+        elementPosition.top += positionResult.position.top;
+        elementPosition.left += positionResult.position.left;
 
-            this.setState({
-                flipped: positionResult.flipped,
-                position: elementPosition
-            });
-        }
+        this.setState({
+            flipped: positionResult.flipped,
+            position: elementPosition
+        });
     }
 
     render() {
-        let { children, show } = this.props;
+        let { children, className, show } = this.props;
         const { flipped, position } = this.state;
         const direction = flipped ? "up" : "down";
 
         const content = show ? children : null;
 
-        let popupClassName = 'k-popup';
-
-        /*const transitionName = {
-            enter: flipped ? styles['slide-up-enter'] : styles['slide-down-enter'],
-            leave: flipped ? styles['slide-up-leave'] : styles['slide-down-leave']
-            };*/
+        const slideProps = {
+            className: styles.popup,
+            componentChildClassName: className,
+            componentWillSlideIn: this.position,
+            direction: direction,
+            style: position
+        };
 
         return (
-            <Slide className={popupClassName} direction={direction} style={position}>
+            <Slide {...slideProps}>
                 {content}
             </Slide>
         );

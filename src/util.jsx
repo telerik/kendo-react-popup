@@ -1,6 +1,7 @@
 const alignPoint = {
     "bottom": "bottom",
     "center": "center",
+    "middle": "middle",
     "left": "left",
     "right": "right",
     "top": "top"
@@ -27,7 +28,7 @@ const align = ({ element, anchor, origins, positions }) => {
         top += anchorRect.height;
     }
 
-    if (verticalOrigin === alignPoint.center) {
+    if (verticalOrigin === alignPoint.center || verticalOrigin === alignPoint.middle) {
         top += Math.round(anchorRect.height / 2);
     }
 
@@ -35,7 +36,7 @@ const align = ({ element, anchor, origins, positions }) => {
         top -= elementRect.height;
     }
 
-    if (verticalPosition === alignPoint.center) {
+    if (verticalPosition === alignPoint.center || verticalPosition === alignPoint.middle) {
         top -= Math.round(elementRect.height / 2);
     }
 
@@ -43,7 +44,7 @@ const align = ({ element, anchor, origins, positions }) => {
         left += anchorRect.width;
     }
 
-    if (horizontalOrigin === alignPoint.center) {
+    if (horizontalOrigin === alignPoint.center || horizontalOrigin === alignPoint.middle) {
         left += Math.round(anchorRect.width / 2);
     }
 
@@ -51,7 +52,7 @@ const align = ({ element, anchor, origins, positions }) => {
         left -= elementRect.width;
     }
 
-    if (horizontalPosition === alignPoint.center) {
+    if (horizontalPosition === alignPoint.center || horizontalPosition === alignPoint.middle) {
         left -= Math.round(elementRect.width / 2);
     }
 
@@ -129,7 +130,11 @@ const fit = function(position, size, viewPortSize) {
 const flip = function({ offset, size, anchorSize, viewPortSize, origin, position }) {
     let output = 0;
 
-    if (position !== origin && position !== alignPoint.center && origin !== alignPoint.center) {
+    const isPositionCentered = position === alignPoint.center || position === alignPoint.middle;
+    const isOriginCentered = origin === alignPoint.center || origin === alignPoint.middle;
+
+
+    if (position !== origin && !isPositionCentered && !isOriginCentered) {
         if (offset + size > viewPortSize) {
             output += -(anchorSize + size);
         }
