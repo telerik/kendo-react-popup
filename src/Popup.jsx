@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 
 import { Slide } from '@telerik/kendo-react-animation';
 
-import styles from '@telerik/kendo-theme-default/styles/popups/main';
+import styles from '@telerik/kendo-theme-default/styles/popup/main';
 import util from './util';
 
 class Popup extends React.Component {
