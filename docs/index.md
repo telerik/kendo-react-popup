@@ -10,7 +10,7 @@ position: 1
 
 The Kendo UI Popup for React is a component that positions a content next to a specific anchor component.
 
-**Figure 1: Kendo UI Popup for React**
+**Figure 1: A template of the Kendo UI Popup for React**
 
 ![Popup](images/left-align.png)
 
@@ -85,9 +85,9 @@ The example below demonstrates the default setup of a Kendo UI Popup for React.
 
 ### Anchor
 
-To align the Popup to a specific component use the `anchor` property. The Popup will open next to the defined anchor component.
+To align the Popup to a specific component use the [`anchor`]({% slug api_popup_kendouiforreact %}#anchor-elementnode) property. The Popup will open next to the defined anchor component.
 
-> To correctly position the Popup, make sure you define the [`anchor`]({% slug api_popup_kendouiforreact %}#anchor-elementnode) configuration property.
+> To correctly position the Popup, make sure you define the `anchor` configuration property.
 
 ```html
   <style>
@@ -157,9 +157,9 @@ To align the Popup to a specific component use the `anchor` property. The Popup 
 
 ### Collisions
 
-To define the Popup boundary detection behavior use the [`collision`]({% slug api_popup_kendouiforreact %}#collision-object) property. It specifies how the component should behave when it does not fit in the view port.
+To define the Popup boundary detection behavior use the [`collision`]({% slug api_popup_kendouiforreact %}#collision-object) property. It specifies the behavior of the component when it does not fit in the view port.
 
-By default, the Popup will fit horizontally and will flip vertically.
+By default, the Popup fits horizontally and flips vertically.
 
 ```html
   <style>
@@ -238,14 +238,15 @@ By default, the Popup will fit horizontally and will flip vertically.
 
 ### Positioning
 
-The component positioning is controlled by specific pivot points. Both, the anchor and Popup components are treated as rectangular elements, hence each has 9 pivot points.
+The component positioning is controlled by specific pivot points. Both the anchor and the Popup are treated as rectangular elements, so each has 9 pivot points. 
+
 Every Popup point can be aligned to an anchor point.
 
-**Figure 2: A right aligned Kendo UI Popup**
+**Figure 2: A right-aligned Kendo UI Popup**
 
 ![Popup](images/right-align.png)
 
-The Popup aligns to the anchor using its top-right point and anchor's bottom-right point.
+The Popup aligns to the anchor using its top-right point and the bottom-right point of the anchor.
 
 ```html-preview
   <style>
@@ -407,4 +408,4 @@ ReactDOM.render(
 
 ## Suggested Links
 
-* [Client-Side API Reference for the Kendo UI Popup Component]({% slug api_popup_kendouiforreact %})
+* [API Reference of the Popup Component]({% slug api_popup_kendouiforreact %})
