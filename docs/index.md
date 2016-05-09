@@ -10,7 +10,7 @@ position: 1
 
 The Kendo UI Popup for React is a component that positions a content next to a specific anchor component.
 
-**Figure 1: A template of the Kendo UI Popup for React**
+**Figure 1: A template of the Popup for React**
 
 ![Popup](images/left-align.png)
 
