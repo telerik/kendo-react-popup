@@ -16,11 +16,11 @@
 
 This repository contains the source code and documentation of the Kendo UI Popup component for React.
 
-For more information on upcoming Popup package features, refer to the [Roadmap](https://github.com/telerik/kendo-react-popup/blob/master/docs/roadmap.md).
+For more information on upcoming Popup features, refer to the [Roadmap](https://github.com/telerik/kendo-react-popup/blob/master/docs/roadmap.md).
 
 ## Basic Usage
 
-The Popup component enables you to position a specific content next to a pre-defined anchor element.
+The Popup enables you to position a specific content next to a pre-defined anchor element.
 
 ```html-preview
   <div id="app"></div>
@@ -63,19 +63,19 @@ The Popup component enables you to position a specific content next to a pre-def
     );
 ```
 
-For more examples and available configuration options, refer to the [Popup documentation section](https://github.com/telerik/kendo-react-popup/blob/master/docs/index.md).
+For more examples and available configuration options, refer to the [Popup documentation](https://github.com/telerik/kendo-react-popup/blob/master/docs/index.md).
 
 ## Installation
 
-The React Popup is published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in http://npmjs.org/.
+The Popup is published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in http://npmjs.org/.
 
-Install it using NPM:
+Install it using NPM.
 
 ```sh
 npm install --save @telerik/kendo-react-popup;
 ```
 
-Once installed, import the module:
+Once installed, import the module.
 
 ```jsx
 // ES2015 module syntax
@@ -88,7 +88,7 @@ var Popup = require('kendo-react-popup');
 
 ## Browser Support
 
-The Kendo UI Popup component for React supports all browsers that are supported by the React framework&mdash;Internet Explorer 9 and later versions.
+The Popup supports all browsers supported by the React framework&mdash;Internet Explorer 9 and later versions.
 
 ## Glossary
 
