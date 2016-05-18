@@ -14,7 +14,7 @@
 
 ## Overview
 
-This repository contains the source code and documentation of the Kendo UI Popup component for React.
+This repository contains the source code and documentation of the Kendo UI Popup package for React.
 
 For more information on upcoming Popup features, refer to the [Roadmap](https://github.com/telerik/kendo-react-popup/blob/master/docs/roadmap.md).
 
@@ -88,7 +88,7 @@ var Popup = require('kendo-react-popup');
 
 ## Browser Support
 
-The Popup supports all browsers supported by the React framework&mdash;Internet Explorer 9 and later versions.
+The Popup works in all browsers supported by the React framework&mdash;Internet Explorer 9 and later versions.
 
 ## Glossary
 
