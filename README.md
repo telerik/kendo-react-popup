@@ -92,7 +92,7 @@ The Popup supports all browsers supported by the React framework&mdash;Internet 
 
 ## Glossary
 
-Below are explained the basic terms that Kendo UI suite for React applies.
+Below are explained the basic terms the suite for React applies.
 
 ### Component
 
