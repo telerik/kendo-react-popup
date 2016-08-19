@@ -236,9 +236,9 @@ By default, the Popup fits horizontally and flips vertically.
 
 ### Positioning
 
-The positioning of the Popup is controlled by specific pivot points. Both the anchor and the Popup are treated as rectangular elements, so each has 9 pivot points. 
+The positioning of the Popup is controlled by specific pivot points. Both the anchor and the Popup are treated as rectangular elements, so each has nine pivot points. 
 
-Every Popup point can be aligned to an anchor point.
+It is possible to align every Popup point to an anchor point.
 
 **Figure 2: A right-aligned Popup**
 
