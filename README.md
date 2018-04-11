@@ -2,6 +2,8 @@
 [![Build Status](https://travis-ci.org/telerik/kendo-react-popup.svg?branch=master)](https://travis-ci.org/telerik/kendo-react-popup)
 [![npm version](https://badge.fury.io/js/%40telerik%2Fkendo-react-popup.svg)](https://badge.fury.io/js/%40telerik%2Fkendo-react-popup)
 
+> This package is now deprecated and has been archived. For the current version of the Kendo UI Popup for React, refer to the official [website](https://www.telerik.com/kendo-react-ui/components/)
+
 # Kendo UI Popup for React
 
 * [Overview](https://github.com/telerik/kendo-react-popup#overview)
